@@ -57,8 +57,8 @@ public class Eliminar extends HttpServlet {
         String URL = "jdbc:mysql:3306//localhost/registro4iv8";
         //driver:gestor:puerto//IP/nombreBD
         
-        String userName = "root";
-        String password = "n0m3l0";
+        String userName = "Andres";
+        String password = "andy2003";
         
         try{
             //colocamos el tipo de driver
@@ -127,23 +127,24 @@ public class Eliminar extends HttpServlet {
             //preparo mi sentencia
             //delete from tabla where atributo = valor
             
-            String q = "delete from mregistro where id_usu = "+id;
+            String q = "delete from Mregistro where id_usu = "+id;
             
             
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Eliminar</title>");            
+            out.println("<title>Servlet Eliminar</title>");  
+            out.print("<link rel=\"stylesheet\" href=\"./CSS/Crud.css\">");
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body bgcolor=\"chartreus\" >");
             
             
             try{
                 
                 set.executeUpdate(q);
                 System.out.println("Registro eliminado");
-            out.println("<h1>Usuario Eliminado</h1>");
+            out.println("<div class=\"y\"><h1>Usuario Eliminado</h1>");
              set.close();
             }catch(Exception e){
             out.println("<h1>Usuario No Eliminado</h1>");
@@ -158,9 +159,8 @@ public class Eliminar extends HttpServlet {
             out.println("<br>"
                     + "<a href='index.html'>Regresar a la pagina principal</a>"
                     + "<br>"
-                    + "<a href='Registro'>Insertar nuevo Usuario</a>"
                     + "<br>"
-                    + "<a href='Consultar'>Consultar Tabla General de Usuarios</a>");
+                    + "<a href='Consultar'>Consultar Tabla General de Usuarios</a> </div>");
             out.println("</body>");
             out.println("</html>");
         }

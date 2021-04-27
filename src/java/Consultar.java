@@ -58,8 +58,8 @@ public class Consultar extends HttpServlet {
         String URL = "jdbc:mysql:3306//localhost/registro4iv8";
         //driver:gestor:puerto//IP/nombreBD
         
-        String userName = "root";
-        String password = "ar428719";
+        String userName = "Andres";
+        String password = "andy2003";
         
         try{
             //colocamos el tipo de driver
@@ -109,11 +109,12 @@ public class Consultar extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Consultar</title>");            
+            out.println("<title>Servlet Consultar</title>"); 
+            out.print("<link rel=\"stylesheet\" href=\"./CSS/Crud.css\">");
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Tabla General de Usuarios</h1>");
-            out.println("<table border='2'>"
+            out.println("<body bgcolor=\"Aqua\" >");
+            out.println("<div class=\"y\"><h1>Tabla General de Usuarios</h1>");
+            out.println("<table align=\"center\" border='2'>"
                     + "<thead>"
                         + "<tr><th>ID</th>"
                         + "<th>Nombre Completo</th>"
@@ -167,7 +168,7 @@ public class Consultar extends HttpServlet {
             out.println("<br>"
                     + "<a href='index.html'>Regresar a la pagina principal</a>"
                     + "<br>"
-                    + "<a href='Registro'>Insertar nuevo Usuario</a>");
+                    + "<a href='Registro'>Insertar nuevo Usuario</a></div>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -49,8 +49,8 @@ public class Actualizar extends HttpServlet {
         String URL = "jdbc:mysql:3307//localhost/registro4iv8";
         //driver:gestor:puerto//IP/nombreBD
         
-        String userName = "root";
-        String password = "ar428719";
+        String userName = "Andres";
+        String password = "andy2003";
         
         try{
             //colocamos el tipo de driver
@@ -82,38 +82,52 @@ public class Actualizar extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             String nom, appat, apmat, correo, ip, iph;
-            int edad, id_a;
+            int edad, id;
             
             nom = request.getParameter("nom_n");   
             appat = request.getParameter("appat_n");
-            apmat = request.getParameter("appmat_n");
+            apmat = request.getParameter("apmat_n");
             correo = request.getParameter("correo_n");
             
             
-            id_a = Integer.parseInt(request.getParameter("Id_actua"));
+            id = Integer.parseInt(request.getParameter("Id_actua"));
                         
             edad = Integer.parseInt(request.getParameter("edad_n"));
             
             try{
                 
-                String q = "UPDATE Mregistr"
-                        + "SET  (nom_usu, appat_usu, apmat_usu, edad_usu, correo_usu) "
-                        + "values ('"+nom+"', '"+appat+"', '"+apmat+"', "+edad+", '"+correo+"')"
-                        + "WHERE id_usu values "+id_a+" ";
+                /*
+                String q = "UPDATE Mregistro"
+                        +  "SET (nom_usu, appat_usu, apmat_usu, edad_usu, correo_usu)"                       
+                        + "values ('"+nom+"','"+appat+"','"+apmat+"',"+edad+",'"+correo+"')"
+                        +"where id_usu="+id;
+                */
+                /*
+                String q = "UPDATE Mregistro SET"
+                + "nom_usu='"+nom+"', appat_usu='"+appat+"', apmat_usu='"+apmat+"', edad_usu="+edad+", correo_usu='"+correo+"'"
+                + " WHERE id_usuario="+id;
+                */
+                /*
+                String q = "UPDATE Mregistro set nom_usu=?,";
+                */
+                
+                String q = "UPDATE Mregistro SET nom_usu='"+nom+ "', appat_usu='"+appat+"', apmat_usu='"+apmat+"', edad_usu="+edad+", correo_usu='"+correo+"' where id_usu="+id;
                 
                 //ejecutar la sentencia
                 set.executeUpdate(q);
                 
-                System.out.println("Registro exitoso");
+                System.out.println("Actualizacion Exitosa");
             
             
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Registro</title>");            
+            out.println("<title>Servlet Registro</title>"); 
+            out.print("<link rel=\"stylesheet\" href=\"./CSS/Crud.css\">");
             out.println("</head>");
-            out.println("<body>"
+            out.println("<body  bgcolor=\"green\">"
+                    +"<div class=\"y\">"
                     + "Tu nombre es: " + nom);
             out.println("<br>"
                     + "Tu apellido paterno es: " + appat
@@ -123,10 +137,11 @@ public class Actualizar extends HttpServlet {
                     + "Tu edad es: " +edad
                     + "<br>"
                     + "Tu correo electronico es:  "+correo);
-            out.println("<h1>Registro Exitoso</h1>"
+            out.println("<h1>Actualizacion Exitosa</h1>"
                     + "<a href='index.html'>Regresar a la pagina principal</a>"
                     + "<br>"
-                    + "<a href='Consultar'>Consultar Tabla General de Usuarios</a>");
+                    + "<a href='Consultar'>Consultar Tabla General de Usuarios</a>"
+                    + "</div>");
             out.println("</body>");
             out.println("</html>");
             
@@ -138,7 +153,7 @@ public class Actualizar extends HttpServlet {
                 out.println("<head>");
                 out.println("<title>Servlet Registro</title>");            
                 out.println("</head>");
-                out.println("<body>");
+                out.println("<body bgcolor=\"red\">");
                 out.println("<h1>Actualizacion No Exitosa, vuelva a intentarlo</h1>"
                     + "<a href='index.html'>Regresar a la pagina principal</a>");
                 out.println("</body>");
@@ -154,15 +169,7 @@ public class Actualizar extends HttpServlet {
             
             
             
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Actualizar</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Actualizar at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
         }
     }
 

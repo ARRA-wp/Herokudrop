@@ -44,11 +44,11 @@ public class Registro extends HttpServlet {
     public void init(ServletConfig cfg) throws ServletException{
         
         //lo primero que necesitamos es trazar la ruta al servidor DB
-        String URL = "jdbc:mysql:3307//localhost/registro4iv8";
+        String URL = "jdbc:mysql:3306//localhost/registro4iv8";
         //driver:gestor:puerto//IP/nombreBD
         
-        String userName = "root";
-        String password = "ar428719";
+        String userName = "Andres";
+        String password = "andy2003";
         
         try{
             //colocamos el tipo de driver
@@ -118,7 +118,7 @@ public class Registro extends HttpServlet {
             
             try{
                 
-                String q = "insert into Mregistr "
+                String q = "insert into Mregistro "
                         + "(nom_usu, appat_usu, apmat_usu, edad_usu, correo_usu) "
                         + "values ('"+nom+"', '"+appat+"', '"+apmat+"', "+edad+", '"+correo+"')";
                 
@@ -132,10 +132,12 @@ public class Registro extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Registro</title>");            
+            out.println("<title>Servlet Registro</title>");  
+            out.print("<link rel=\"stylesheet\" href=\"./CSS/Crud.css\">");
             out.println("</head>");
-            out.println("<body>"
-                    + "Tu nombre es: " + nom);
+            out.println("<body bgcolor=\"purple\">"
+                    
+                    + "<div class=\"y\">Tu nombre es: " + nom);
             out.println("<br>"
                     + "Tu apellido paterno es: " + appat
                     + "<br>"
@@ -147,7 +149,7 @@ public class Registro extends HttpServlet {
             out.println("<h1>Registro Exitoso</h1>"
                     + "<a href='index.html'>Regresar a la pagina principal</a>"
                     + "<br>"
-                    + "<a href='Consultar'>Consultar Tabla General de Usuarios</a>");
+                    + "<a href='Consultar'>Consultar Tabla General de Usuarios</a></div>");
             out.println("</body>");
             out.println("</html>");
             

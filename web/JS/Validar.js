@@ -34,3 +34,10 @@ function validarc(e){
     return patron.test(prueba);
 }
 
+function validare(e) {
+    if (e.target.value.trim() == "")
+     alert("debe ingresar un valor en el campo");
+    else
+     alert("ingreso "+e.target.value.trim()+", es correcto!");
+   }
+
